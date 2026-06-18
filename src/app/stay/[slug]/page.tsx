@@ -1,9 +1,23 @@
-import { staysData, commonAmenities, standardRoomAmenities } from "@/data/stays";
+import { staysData } from "@/data/stays";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import StayBookingWrapper from "@/components/stay/StayBookingWrapper";
 import StayGallery from "@/components/stay/StayGallery";
+
+const amenitiesList = [
+  "Farm-to-Table Organic Meals",
+  "High-Speed Wifi",
+  "Living Area",
+  "Swimming Pool",
+  "Outdoor Deck Sitting",
+  "Gym",
+  "Recreation",
+  "Kailasa Temple",
+  "Bonfire Area",
+  "Library",
+  "Farm Walks"
+];
 
 export function generateStaticParams() {
   return staysData.map((stay) => ({
@@ -70,24 +84,40 @@ export default async function StayDetailPage({ params }: { params: Promise<{ slu
                 </li>
               ))}
             </ul>
-            
-            <details className="mt-12 group border-t border-kw-forest/10 pt-8">
-              <summary className="text-sm uppercase tracking-widest text-kw-sage mb-4 font-medium text-center cursor-pointer list-none flex items-center justify-center gap-2 hover:text-kw-forest transition-colors">
-                <span>Standard & Common Amenities</span>
-                <span className="text-lg group-open:rotate-180 transition-transform duration-300">↓</span>
-              </summary>
-              <ul className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-4 mt-8">
-                {[...standardRoomAmenities, ...commonAmenities].map((amenity, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-kw-forest/80">
-                    <div className="w-1.5 h-1.5 rounded-full bg-kw-sage/50 shrink-0" />
-                    <span className="text-sm md:text-base">{amenity}</span>
-                  </li>
-                ))}
-              </ul>
-            </details>
           </div>
 
           <StayBookingWrapper stayTitle={stay.title} />
+        </div>
+      </section>
+
+      {/* Common Amenities Section */}
+      <section className="py-24 bg-kw-offwhite relative">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="h-px w-12 bg-kw-sage/50" />
+              <span className="text-xs uppercase tracking-widest text-kw-forest/50">Shared Spaces</span>
+              <div className="h-px w-12 bg-kw-sage/50" />
+            </div>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 text-kw-forest">
+              Common Amenities & Recreation
+            </h2>
+            <p className="text-base md:text-lg text-kw-forest/80 leading-relaxed mb-16">
+              The common areas are an integral part of your stay at Kailasa Woods. Whether you want to stay active, relax with a book, or enjoy an evening by the bonfire, our shared spaces offer something for everyone.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0 border-t border-kw-forest/10 mt-12 text-left">
+              {amenitiesList.map((amenity, index) => (
+                <div
+                  key={index}
+                  className="py-6 border-b border-kw-forest/10 flex items-center justify-between"
+                >
+                  <h3 className="font-sans font-medium text-lg text-kw-forest">{amenity}</h3>
+                  <div className="w-1.5 h-1.5 rounded-full bg-kw-sage" />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

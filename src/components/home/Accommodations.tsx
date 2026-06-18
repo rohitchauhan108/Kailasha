@@ -1,13 +1,12 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useScroll, useTransform, MotionValue, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Link from "next/link";
-import { staysData as accommodations, commonAmenities, standardRoomAmenities } from "@/data/stays";
+import { staysData as accommodations } from "@/data/stays";
 
 function AccommodationItem({ item, index, scrollYProgress, total }: { item: { details: string; title: string; description: string; heroImage: string; amenities: string[] }, index: number, scrollYProgress: MotionValue<number>, total: number }) {
   const y = useTransform(scrollYProgress, [Math.max(0, (index - 1) / total), (index + 1) / total], ["-15%", "15%"]);
-  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div 
@@ -45,7 +44,7 @@ function AccommodationItem({ item, index, scrollYProgress, total }: { item: { de
             </ul>
           </div>
 
-          <div className="mb-10 border-t border-kw-forest/20 pt-4 max-w-lg">
+          {/* <div className="mb-10 border-t border-kw-forest/20 pt-4 max-w-lg">
             <button 
               onClick={() => setIsOpen(!isOpen)}
               className="w-full flex items-center justify-between text-left group"
@@ -76,7 +75,7 @@ function AccommodationItem({ item, index, scrollYProgress, total }: { item: { de
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </div> */}
 
           <Link href={`/stay`}>
             <motion.button 

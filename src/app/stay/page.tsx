@@ -1,13 +1,24 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { staysData as accommodations, commonAmenities, standardRoomAmenities } from "@/data/stays";
+import { motion } from "framer-motion";
+import { staysData as accommodations } from "@/data/stays";
 import Link from "next/link";
 
-export default function StayPage() {
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+const amenitiesList = [
+  "Farm-to-Table Organic Meals",
+  "High-Speed Wifi",
+  "Living Area",
+  "Swimming Pool",
+  "Outdoor Deck Sitting",
+  "Gym",
+  "Recreation",
+  "Kailasa Temple",
+  "Bonfire Area",
+  "Library",
+  "Farm Walks"
+];
 
+export default function StayPage() {
   return (
     <main className="min-h-screen bg-kw-beige text-kw-forest">
       {/* Hero Section */}
@@ -71,7 +82,7 @@ export default function StayPage() {
                     <img
                       src={item.heroImage}
                       alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+                      className="w-full h-full object-cover"
                     />
                   </motion.div>
                 </div>
@@ -106,39 +117,6 @@ export default function StayPage() {
                           </li>
                         ))}
                       </ul>
-                    </div>
-
-                    <div className="mb-10 border-t border-kw-forest/20 pt-4">
-                      <button 
-                        onClick={() => setOpenDropdown(openDropdown === index ? null : index)}
-                        className="w-full flex items-center justify-between text-left group"
-                      >
-                        <h4 className="text-xs uppercase tracking-widest text-kw-forest/80 font-bold group-hover:text-kw-sage transition-colors">
-                          Standard & Common Amenities
-                        </h4>
-                        <span className="text-kw-forest/50 group-hover:text-kw-sage transition-colors text-lg">
-                          {openDropdown === index ? "−" : "+"}
-                        </span>
-                      </button>
-                      <AnimatePresence>
-                        {openDropdown === index && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0, marginTop: 0 }}
-                            animate={{ height: "auto", opacity: 1, marginTop: 16 }}
-                            exit={{ height: 0, opacity: 0, marginTop: 0 }}
-                            className="overflow-hidden"
-                          >
-                            <ul className="grid grid-cols-2 gap-y-3 gap-x-4">
-                              {[...standardRoomAmenities, ...commonAmenities].map((amenity, i) => (
-                                <li key={i} className="text-sm text-kw-forest/80 flex items-center gap-2">
-                                  <div className="w-1.5 h-1.5 rounded-full bg-kw-sage/50" />
-                                  {amenity}
-                                </li>
-                              ))}
-                            </ul>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
                     </div>
 
                     <Link href={`/stay/${item.id}`}>
@@ -182,8 +160,8 @@ export default function StayPage() {
               The common areas are an integral part of your stay at Kailasa Woods. Whether you want to stay active, relax with a book, or enjoy an evening by the bonfire, our shared spaces offer something for everyone.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-0 border-t border-kw-forest/10 mt-12 text-left">
-              {commonAmenities.map((amenity, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0 border-t border-kw-forest/10 mt-12 text-left">
+              {amenitiesList.map((amenity, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}

@@ -9,91 +9,113 @@ import {
 } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
-// Organized image array grouping file pairs cleanly by asset folder paths
-const allImages = [
-  // Main House
-   "/main house/h (4).png",
-  "/main house/h (1).webp",
-  "/main house/h (2).webp",
-  "/main house/h (1).png",
-  "/main house/h (2).png",
-  "/main house/h (3).png",
-  // "/main house/h (5).png",
- 
-
-
-  // Gym
-  "/gym/g (1).png",
-  "/gym/g (1).webp",
-  "/gym/g (2).webp",
-  "/gym/g (3).webp",
-  "/gym/g (4).webp",
-  "/gym/g (5).webp",
-
-  // Mandir & Bonfire
-  "/mandir bonfire/m (1).JPG",
-  "/mandir bonfire/m (1).webp",
-  "/mandir bonfire/m (2).webp",
-
-  // Pets
-  "/pets/p (1).JPG",
-  "/pets/p (2).JPG",
-  "/pets/p (3).JPG",
-
-  // Amazon Bus (New)
-  "/kailasha-new-iamges/amazon-bus/1.webp",
-  "/kailasha-new-iamges/amazon-bus/10.jpg",
-  "/kailasha-new-iamges/amazon-bus/10.webp",
-  "/kailasha-new-iamges/amazon-bus/11.webp",
-  "/kailasha-new-iamges/amazon-bus/12.webp",
-  "/kailasha-new-iamges/amazon-bus/2.webp",
-  "/kailasha-new-iamges/amazon-bus/3.webp",
-  "/kailasha-new-iamges/amazon-bus/4.webp",
-  "/kailasha-new-iamges/amazon-bus/5.webp",
-  "/kailasha-new-iamges/amazon-bus/6.webp",
-  "/kailasha-new-iamges/amazon-bus/7.webp",
-  "/kailasha-new-iamges/amazon-bus/8.webp",
-  // "/kailasha-new-iamges/amazon-bus/9.webp",
-
-  // Bamboo Cottage (New)
-  "/kailasha-new-iamges/bamboo-cottage/1.webp",
-  "/kailasha-new-iamges/bamboo-cottage/2.webp",
-  "/kailasha-new-iamges/bamboo-cottage/3.webp",
-  "/kailasha-new-iamges/bamboo-cottage/4.webp",
-  "/kailasha-new-iamges/bamboo-cottage/5.webp",
-  "/kailasha-new-iamges/bamboo-cottage/6.webp",
-  "/kailasha-new-iamges/bamboo-cottage/7.webp",
-  "/kailasha-new-iamges/bamboo-cottage/8.webp",
-  "/kailasha-new-iamges/bamboo-cottage/9.webp",
-
-  // Family Room (New)
-  "/kailasha-new-iamges/family-room/1.webp",
-  "/kailasha-new-iamges/family-room/10.webp",
-  "/kailasha-new-iamges/family-room/11.webp",
-  "/kailasha-new-iamges/family-room/12.webp",
-  "/kailasha-new-iamges/family-room/2.webp",
-  "/kailasha-new-iamges/family-room/3.webp",
-  "/kailasha-new-iamges/family-room/4.webp",
-  "/kailasha-new-iamges/family-room/5.webp",
-  "/kailasha-new-iamges/family-room/6.webp",
-  "/kailasha-new-iamges/family-room/7.webp",
-  "/kailasha-new-iamges/family-room/8.webp",
-  "/kailasha-new-iamges/family-room/9.webp",
-
-  // Other New Images (in root of kailasha-new-iamges)
+// Organized image arrays by category
+const mainHouseImages = [
+  "/new/2.png",
+  "/new/4.png",
+  "/new/3.png",
+  "/new/9.png",
+  "/new/10.png",
+  "/new/13.jpg",
+  "/new/16.jpg",
+  "/new/17.jpg",
   "/kailasha-new-iamges/1.webp",
-  "/kailasha-new-iamges/10.webp",
-  "/kailasha-new-iamges/11.webp",
-  "/kailasha-new-iamges/12.webp",
-  "/kailasha-new-iamges/13.webp",
-  "/kailasha-new-iamges/2.webp",
-  // "/kailasha-new-iamges/3.webp",
   "/kailasha-new-iamges/4.webp",
   "/kailasha-new-iamges/5.jpg",
   "/kailasha-new-iamges/6.webp",
-  "/kailasha-new-iamges/7.webp",
   "/kailasha-new-iamges/8.webp",
-  "/kailasha-new-iamges/9.webp",
+  "/kailasha-new-iamges/10.webp",
+];
+
+const gymImages = [
+  "/gym/g (3).webp",
+
+  "/new/15.jpg",
+
+  "/gym/g (1).webp",
+  "/gym/g (2).webp",
+];
+
+const mandirBonfireImages = [
+  "/mandir bonfire/m (1).webp",
+  "/mandir bonfire/m (2).webp",
+  "/new/6.jpg"
+];
+
+const petsImages = [
+  "/pets/p (1).JPG",
+  "/pets/p (2).JPG",
+  "/pets/p (3).JPG"
+];
+
+const amazonBusImages = [
+  "/kailasha-new-iamges/amazon-bus/12.webp",
+  "/kailasha-new-iamges/amazon-bus/4.webp",
+  "/kailasha-new-iamges/amazon-bus/6.webp",
+  "/kailasha-new-iamges/amazon-bus/8.webp",
+
+  "/kailasha-new-iamges/amazon-bus/7.webp",
+
+  "/kailasha-new-iamges/amazon-bus/9.webp",
+  "/kailasha-new-iamges/amazon-bus/2.webp",
+
+
+  "/kailasha-new-iamges/amazon-bus/10.webp",
+
+];
+
+const bambooCottageImages = [
+  "/kailasha-new-iamges/bamboo-cottage/7.webp",
+  "/kailasha-new-iamges/bamboo-cottage/9.webp",
+  "/kailasha-new-iamges/bamboo-cottage/3.webp",
+  "/kailasha-new-iamges/bamboo-cottage/4.webp",
+  "/kailasha-new-iamges/bamboo-cottage/6.webp",
+  "/kailasha-new-iamges/bamboo-cottage/1.webp",
+
+];
+
+const familyRoomImages = [
+  "/kailasha-new-iamges/family-room/2.webp",
+
+  "/kailasha-new-iamges/family-room/4.webp",
+
+
+  "/kailasha-new-iamges/family-room/6.webp",
+  "/kailasha-new-iamges/family-room/7.webp",
+  "/kailasha-new-iamges/family-room/8.webp",
+  "/kailasha-new-iamges/family-room/12.webp",
+
+  "/kailasha-new-iamges/family-room/9.webp",
+  "/kailasha-new-iamges/family-room/3.webp",
+
+];
+
+const otherImages = [
+  "/others/2.webp",
+  "/others/7.webp",
+];
+
+const allImages = [
+  ...mainHouseImages,
+  ...gymImages,
+  ...mandirBonfireImages,
+  ...petsImages,
+  ...amazonBusImages,
+  ...bambooCottageImages,
+  ...familyRoomImages,
+  ...otherImages
+];
+
+const categories = [
+  "All",
+  "Main House",
+  "Gym & Recreations",
+  "Mandir & Bonfire",
+  "Pets",
+  "Amazon Bus",
+  "Bamboo Cottage",
+  "Family Room",
+  "Other"
 ];
 
 // Soft, premium spring physics configurations
@@ -151,22 +173,32 @@ export default function GalleryClient() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [[page, direction], setPage] = useState([0, 0]);
 
-  const getCategoryFromPath = (path: string): string => {
-    if (path.includes("/main house/")) return "Main House";
-    if (path.includes("/gym/")) return "Gym";
-    if (path.includes("/mandir bonfire/")) return "Mandir & Bonfire";
-    if (path.includes("/pets/")) return "Pets";
-    if (path.includes("/kailasha-new-iamges/amazon-bus/")) return "Amazon Bus";
-    if (path.includes("/kailasha-new-iamges/bamboo-cottage/")) return "Bamboo Cottage";
-    if (path.includes("/kailasha-new-iamges/family-room/")) return "Family Room";
-    return "Other";
+  const getImagesForCategory = (category: string) => {
+    switch (category) {
+      case "All":
+        return allImages;
+      case "Main House":
+        return mainHouseImages;
+      case "Gym":
+        return gymImages;
+      case "Mandir & Bonfire":
+        return mandirBonfireImages;
+      case "Pets":
+        return petsImages;
+      case "Amazon Bus":
+        return amazonBusImages;
+      case "Bamboo Cottage":
+        return bambooCottageImages;
+      case "Family Room":
+        return familyRoomImages;
+      case "Other":
+        return otherImages;
+      default:
+        return [];
+    }
   };
 
-  const categories = ["All", "Main House", "Gym", "Mandir & Bonfire", "Pets", "Amazon Bus", "Bamboo Cottage", "Family Room", "Other"];
-
-  const filteredImages = allImages.filter(
-    (img) => activeCategory === "All" || getCategoryFromPath(img) === activeCategory
-  );
+  const filteredImages = getImagesForCategory(activeCategory);
 
   const openLightbox = (imageSrc: string) => {
     const absoluteIndex = allImages.indexOf(imageSrc);
@@ -207,16 +239,15 @@ export default function GalleryClient() {
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "auto";
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lightboxOpen]);
 
   return (
     <div className="w-full">
-      {/* Hero Section — Left completely untouched */}
+      {/* Hero Section */}
       <section className="relative flex h-[60vh] min-h-125 items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/main house/h (1).webp"
+            src={mainHouseImages[0]}
             alt="Gallery Kailasa Woods"
             className="w-full h-full object-cover"
           />
@@ -287,7 +318,7 @@ export default function GalleryClient() {
 
       {/* Dynamic Stagger Layout Grid */}
       <div className="mx-auto max-w-450 px-2 py-12">
-        <motion.div layout="position" className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
+        <motion.div layout="position" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           <AnimatePresence mode="popLayout">
             {filteredImages.map((src) => (
               <motion.div
@@ -298,14 +329,14 @@ export default function GalleryClient() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={fluidSpring}
-                className="break-inside-avoid relative group cursor-pointer overflow-hidden rounded-none"
+                className="relative group cursor-pointer overflow-hidden rounded-none"
                 onClick={() => openLightbox(src)}
               >
-                <div className="w-full overflow-hidden bg-neutral-900">
+                <div className="w-full overflow-hidden bg-neutral-900 aspect-[4/3]">
                   <img
                     src={src}
                     alt="Gallery Asset Component"
-                    className="h-auto w-full rounded-none object-cover transition-transform duration-1200 cubic-bezier(0.16, 1, 0.3, 1) group-hover:scale-103"
+                    className="h-full w-full object-cover transition-transform duration-1200 cubic-bezier(0.16, 1, 0.3, 1) group-hover:scale-103"
                     loading="lazy"
                   />
                 </div>

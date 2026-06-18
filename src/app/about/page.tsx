@@ -73,11 +73,11 @@ export default function AboutPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
                   <div className="space-y-2">
                     <h4 className="font-serif text-xl text-kw-forest">Farm-to-Table</h4>
-                    <p className="text-sm">Organic, fresh-cooked meals sourced directly from our estate gardens. Our 12-hour kitchen ensures quality in every bite.</p>
+                    <p className="text-sm">Organic, fresh-cooked meals sourced directly from our estate gardens.</p>
                   </div>
                   <div className="space-y-2">
-                    <h4 className="font-serif text-xl text-kw-forest">24/7 Support</h4>
-                    <p className="text-sm">Rounding out our hospitality is 24/7 dining support and our famous complimentary breakfast service.</p>
+                    <h4 className="font-serif text-xl text-kw-forest">Living Area</h4>
+                    <p className="text-sm">Spacious, comfortable living spaces for relaxation and socializing.</p>
                   </div>
                 </div>
                 
