@@ -15,23 +15,18 @@ const mainHouseImages = [
   "/new/4.png",
   "/new/3.png",
   "/new/9.png",
+  "/kailasha-new-iamges/8.webp",
+
   "/new/10.png",
   "/new/13.jpg",
-  "/new/16.jpg",
   "/new/17.jpg",
   "/kailasha-new-iamges/1.webp",
   "/kailasha-new-iamges/4.webp",
-  "/kailasha-new-iamges/5.jpg",
-  "/kailasha-new-iamges/6.webp",
-  "/kailasha-new-iamges/8.webp",
-  "/kailasha-new-iamges/10.webp",
 ];
 
 const gymImages = [
   "/gym/g (3).webp",
-
   "/new/15.jpg",
-
   "/gym/g (1).webp",
   "/gym/g (2).webp",
 ];
@@ -52,7 +47,6 @@ const amazonBusImages = [
   "/kailasha-new-iamges/amazon-bus/12.webp",
   "/kailasha-new-iamges/amazon-bus/4.webp",
   "/kailasha-new-iamges/amazon-bus/6.webp",
-  "/kailasha-new-iamges/amazon-bus/8.webp",
 
   "/kailasha-new-iamges/amazon-bus/7.webp",
 
@@ -179,7 +173,7 @@ export default function GalleryClient() {
         return allImages;
       case "Main House":
         return mainHouseImages;
-      case "Gym":
+      case "Gym & Recreations":
         return gymImages;
       case "Mandir & Bonfire":
         return mandirBonfireImages;
