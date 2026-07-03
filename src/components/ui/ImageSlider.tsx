@@ -15,15 +15,12 @@ export default function ImageSlider({
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [direction, setDirection] = useState(0);
 
   const nextSlide = useCallback(() => {
-    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % images.length);
   }, [images.length]);
 
   const prevSlide = useCallback(() => {
-    setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   }, [images.length]);
 
@@ -34,19 +31,10 @@ export default function ImageSlider({
     return () => clearInterval(timer);
   }, [isPaused, nextSlide, autoplayInterval]);
 
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? '100%' : '-100%',
-      opacity: 1,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction < 0 ? '100%' : '-100%',
-      opacity: 1,
-    }),
+  const fadeVariants = {
+    enter: { opacity: 0 },
+    center: { opacity: 1 },
+    exit: { opacity: 0 },
   };
 
   return (
@@ -55,20 +43,16 @@ export default function ImageSlider({
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <AnimatePresence initial={false} custom={direction} mode="wait">
+      <AnimatePresence initial={false} mode="wait">
         <motion.img
           key={currentIndex}
-          custom={direction}
           src={images[currentIndex]}
           alt={`${title} - Image ${currentIndex + 1}`}
-          variants={slideVariants}
+          variants={fadeVariants}
           initial="enter"
           animate="center"
           exit="exit"
-          transition={{
-            x: { duration: 0.6, ease: "easeInOut" },
-            opacity: { duration: 0.3 },
-          }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
           className="absolute inset-0 w-full h-full object-cover"
         />
       </AnimatePresence>
