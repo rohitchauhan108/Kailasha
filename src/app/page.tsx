@@ -6,6 +6,7 @@ import Accommodations from "@/components/home/Accommodations";
 import VideoExperience from "@/components/home/VideoExperience";
 import Gallery from "@/components/home/Gallery";
 import Amenities from "@/components/home/Amenities";
+import WelcomeMessage from "@/components/home/WelcomeMessage";
 import LocationReachUs from "@/components/home/LocationReachUs";
 import Footer from "@/components/footer/Footer";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Accommodations />
       <Gallery />
       <Amenities />
+      <WelcomeMessage />
       <LocationReachUs />
     </main>
   );
