@@ -87,14 +87,14 @@ export default function About() {
               <div className="w-full lg:w-1/2 flex items-center">
                 {index === 5 ? (
                   // 4-image grid for picture 6
-                  <div className="w-full grid grid-cols-2 gap-3 md:gap-4">
+                  <div className="w-full grid grid-cols-2 gap-2 md:gap-3">
                     {[
                       '/pets/p (1).JPG', '/pets/p (2).JPG', '/pets/p (3).JPG', '/mandir bonfire/m (1).webp'].map((src, i) => (
-                      <div key={i} className="relative w-full aspect-square overflow-hidden rounded-sm bg-kw-beige/50 group">
+                      <div key={i} className="relative w-full aspect-[4/3] overflow-hidden rounded-sm bg-kw-beige/50 group">
                         <img 
                           src={src} 
                           alt={`Image ${i+1}`}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           onError={(e) => {
                             (e.target as HTMLImageElement).style.display = 'none';
                           }}
@@ -104,17 +104,17 @@ export default function About() {
                   </div>
                 ) : index === 6 ? (
                   // 3-image grid for stays
-                  <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+                  <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
                     {[
                       '/about-section/Family room.jpg',
                       '/about-section/Amazon bus.jpg',
                       '/about-section/Bamboo cottage.jpg'
                     ].map((src, i) => (
-                      <div key={i} className="relative w-full aspect-square overflow-hidden rounded-sm bg-kw-beige/50 group">
+                      <div key={i} className="relative w-full aspect-[4/3] overflow-hidden rounded-sm bg-kw-beige/50 group">
                         <img 
                           src={src} 
                           alt={`Stay ${i+1}`}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           onError={(e) => {
                             (e.target as HTMLImageElement).style.display = 'none';
                           }}
@@ -124,14 +124,14 @@ export default function About() {
                   </div>
                 ) : index === 7 ? (
                   // 4-image grid for food
-                  <div className="w-full grid grid-cols-2 gap-3 md:gap-4">
+                  <div className="w-full grid grid-cols-2 gap-2 md:gap-3">
                     {[
                       '/food/1.jpg', '/food/2.jpg', '/food/3.jpg', '/food/4.jpg'].map((src, i) => (
-                      <div key={i} className="relative w-full aspect-square overflow-hidden rounded-sm bg-kw-beige/50 group">
+                      <div key={i} className="relative w-full aspect-[4/3] overflow-hidden rounded-sm bg-kw-beige/50 group">
                         <img 
                           src={src} 
                           alt={`Food ${i+1}`}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           onError={(e) => {
                             (e.target as HTMLImageElement).style.display = 'none';
                           }}
@@ -141,11 +141,11 @@ export default function About() {
                   </div>
                 ) : (
                   // Single image for other blocks
-                  <div className="relative w-full aspect-[3/4] md:aspect-[4/5] overflow-hidden rounded-sm bg-kw-beige/50 group">
+                  <div className="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-sm bg-kw-beige/50 group">
                     <img 
                       src={block.image} 
                       alt={`Story - Image ${index + 1}`}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none';
                       }}
