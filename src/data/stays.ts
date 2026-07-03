@@ -39,11 +39,10 @@ export const staysData = [
       "/kailasha-new-iamges/family-room/10.webp",
       "/kailasha-new-iamges/family-room/12.webp",
       "/kailasha-new-iamges/family-room/9.webp",
-      "/kailasha-new-iamges/family-room/3.webp",
-
+      "/kailasha-new-iamges/family-room/3.webp"
     ],
     details: "Greek Architecture • Private Garden Balcony • Indoor Pantry",
-    amenities: ["A cozy king-size bed", "Private Garden Balcony", "Indoor Pantry", ]
+    amenities: ["A cozy king-size bed", "Private Garden Balcony", "Indoor Pantry"]
   },
   {
     id: "bamboo-stay",
@@ -54,16 +53,12 @@ export const staysData = [
     gallery: [
       "/kailasha-new-iamges/bamboo-cottage/7.webp",
       "/bamboo/bamboo.webp",
-      "/bamboo/b (1).webp",
       "/kailasha-new-iamges/bamboo-cottage/3.webp",
       "/kailasha-new-iamges/bamboo-cottage/8.webp",
       "/kailasha-new-iamges/bamboo-cottage/6.webp",
       "/kailasha-new-iamges/bamboo-cottage/5.webp",
       "/kailasha-new-iamges/bamboo-cottage/2.webp",
-      "/kailasha-new-iamges/bamboo-cottage/1.webp",
-
-
-
+      "/kailasha-new-iamges/bamboo-cottage/1.webp"
     ],
     details: "Bamboo Forest • Private Garden Balcony • Jacuzzi",
     amenities: ["A cozy bed", "Private Jacuzzi", "Private Garden Balcony", "Indoor Pantry", "Bamboo Forest View"]
@@ -74,24 +69,16 @@ export const staysData = [
     description: "Experience the unique Amazon Bus, offering an immersive, playful escape. Now featuring a private outdoor barbecue area for unforgettable evenings under the stars.",
     fullDescription: "For those seeking an unforgettable and quirky experience, The Amazon Bus is your perfect match. Repurposed and elegantly designed, it offers a tranquil retreat immersed in nature's beauty. It features a private outdoor sitting area and a dedicated private outdoor barbecue space where you can enjoy fresh-cooked meals under the stars. It is a brilliant blend of natural charm, traditional craftsmanship, and modern comfort, providing a truly unique stay that you will remember for a lifetime.",
     heroImage: "/kailasha-new-iamges/amazon-bus/8.webp",
-
     gallery: [
       "/amazon bus/amazon.webp",
       "/kailasha-new-iamges/amazon-bus/10.jpg",
       "/kailasha-new-iamges/amazon-bus/6.webp",
-
       "/kailasha-new-iamges/amazon-bus/1.webp",
-
       "/kailasha-new-iamges/amazon-bus/7.webp",
       "/amazon bus/a1 (4).png",
-
       "/kailasha-new-iamges/amazon-bus/9.webp",
       "/kailasha-new-iamges/amazon-bus/3.webp",
-      "/kailasha-new-iamges/amazon-bus/10.webp",
-
-
-
-
+      "/kailasha-new-iamges/amazon-bus/10.webp"
     ],
     details: "Unique Architecture • Private Outdoor Barbecue",
     amenities: ["A cozy bed", "Private Outdoor Barbecue", "Private Outdoor Sitting Area", "Nature View", "Kitchenette"]

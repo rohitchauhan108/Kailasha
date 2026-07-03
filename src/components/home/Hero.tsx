@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 import Link from "next/link";
+import ImageSlider from "../ui/ImageSlider";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,34 +16,27 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  
+  const heroImages = [
+    "/desktop.jpeg",
+    "/about-section/picture2.jpg",
+    "/about-section/house-img.png",
+    "/about-section/living-area-with-family.png"
+  ];
 
   return (
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-kw-forest">
-      {/* Grain Overlay for Hero */}
-      <div 
-        className="pointer-events-none absolute inset-0 z-20 opacity-[0.15] mix-blend-overlay"
-        style={{ backgroundImage: 'url("https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png")' }}
-      />
+
       <motion.div
         style={{ y, scale }}
         className="absolute inset-0 h-full w-full"
       >
-        <div className="absolute inset-0 bg-black/30 z-10" />
-        <img
-          src="/desktop.jpeg"
-          alt="Luxury Farm Stay Desktop"
-          className="hidden md:block h-full w-full object-cover"
-        />
-        <img
-          src="/mobile.jpeg"
-          alt="Luxury Farm Stay Mobile"
-          className="md:hidden h-full w-full object-cover"
-        />
+        <ImageSlider images={heroImages} title="Kailasa Woods Hero" autoplayInterval={10000} />
       </motion.div>
 
       <motion.div
         style={{ opacity }}
-        className="relative z-30 h-full flex flex-col items-center justify-center text-center px-4"
+        className="relative z-30 h-full flex flex-col items-center justify-center text-center px-4 pointer-events-none"
       >
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -73,7 +67,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="px-8 py-3 bg-kw-offwhite text-kw-forest uppercase tracking-widest text-sm hover:bg-kw-beige transition-colors duration-300 shadow-xl"
+              className="px-8 py-3 bg-kw-offwhite text-kw-forest uppercase tracking-widest text-sm hover:bg-kw-beige transition-colors duration-300 shadow-xl pointer-events-auto"
             >
               Discover
             </motion.button>

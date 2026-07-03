@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 
 export default function AboutPage() {
   return (
@@ -13,6 +12,9 @@ export default function AboutPage() {
             src="/about-bg.png"
             alt="About Kailasa Woods"
             className="w-full h-full object-cover object-bottom-left bg-black/2"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = 'none';
+            }}
           />
           <div className="absolute inset-0 bg-black/40 mix-blend-overlay" />
           <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/30 to-kw-offwhite/20" />
@@ -25,7 +27,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="text-kw-offwhite/80 tracking-widest uppercase text-sm mb-6 block font-medium"
           >
-            The Experience
+            About Us
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -33,113 +35,43 @@ export default function AboutPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-sans font-light tracking-wide text-3xl md:text-4xl lg:text-5xl text-kw-offwhite mb-6 leading-tight max-w-4xl mx-auto"
           >
-            Kailasa Woods isn&apos;t just a place you see; <br className="hidden md:block" /> it&apos;s an atmosphere you feel.
+            Where people, animals, and nature <br className="hidden md:block" /> coexist in harmony
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-white text-lg md:text-xl max-w-2xl mx-auto font-sans font-light tracking-wide"
-          >
-            It is the quiet rustle of the bamboo forest, the warmth of old-world charm, and the luxury of unhurried time.
-          </motion.p>
         </div>
       </section>
 
       {/* Main Content */}
       <section className="py-24 md:py-32 px-6 md:px-12 relative overflow-hidden">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+        <div className="container mx-auto max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="space-y-8"
+          >
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-kw-forest mb-8">
+              About Us
+            </h2>
             
-            {/* Text Content */}
-            <div className="w-full lg:w-1/2 space-y-8 flex flex-col justify-center">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="space-y-6 text-base md:text-lg text-kw-forest/80 leading-relaxed font-sans"
-              >
-                <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-kw-forest mb-6">
-                  Explore Our Estate
-                </h2>
-                <p>
-                  Set within a sprawling 45,000 sq. ft. estate, our property features 12,000 sq. ft. of elegant, theme-based concept living. Whether you are looking for an immersive playful escape or a quiet bamboo forest retreat, you&apos;ll find it here.
-                </p>
-                <p>
-                  Discover the rhythm of the hills and step into our uniquely crafted accommodations. From our signature farm-to-table dining to the quiet rustle of the bamboo forest, every moment is an invitation to stay present.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-                  <div className="space-y-2">
-                    <h4 className="font-serif text-xl text-kw-forest">Farm-to-Table</h4>
-                    <p className="text-sm">Organic, fresh-cooked meals sourced directly from our estate gardens.</p>
-                  </div>
-                  <div className="space-y-2">
-                    <h4 className="font-serif text-xl text-kw-forest">Living Area</h4>
-                    <p className="text-sm">Spacious, comfortable living spaces for relaxation and socializing.</p>
-                  </div>
-                </div>
-                
-                <div className="pt-8">
-                  <Link href="/stay">
-                    <motion.button 
-                      whileHover={{ x: 5 }}
-                      className="uppercase tracking-widest text-sm font-bold border-b-2 border-kw-forest pb-1 hover:text-kw-sage hover:border-kw-sage transition-all duration-300"
-                    >
-                      Discover Our Rooms
-                    </motion.button>
-                  </Link>
-                </div>
-              </motion.div>
+            <p className="text-lg md:text-xl text-kw-forest/90 leading-relaxed font-serif">
+              At Kailasa Woods, our family extends well beyond the people who live here. We share our home with some very special companions—our two beloved Shih Tzus - Coco and Zara, our Lion King like German Shepherd - Sultan. Our beautiful cheerful Brazilian conors whose songs fill the mornings, colourful fishes and turtles in the pond, and a few adopted cats who seem to have chosen Kailasa Woods as their forever happy place.
+            </p>
+
+            <p className="text-lg md:text-xl text-kw-forest/90 leading-relaxed font-serif">
+              As an animal lover, my pets have always been much more than pets—they are family, my little babies, and an important part of the warmth and joy that make this home what it is. Their presence adds a certain magic to everyday life here, whether it&apos;s a wagging tail welcoming you in, birds singing from the garden, or a curious cat strolling through the property as though it owns the place.
+            </p>
+
+            <div className="border-l-4 border-kw-sage pl-6 my-10">
+              <p className="text-xl md:text-2xl text-kw-forest/85 italic font-serif">
+                Kailasa is a pet-friendly homestay and we would be delighted to welcome your furry companions too.
+              </p>
             </div>
 
-            {/* Images Grid Content */}
-            <div className="w-full lg:w-1/2 grid grid-cols-2 gap-2 md:gap-3 relative">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="col-span-2 h-64 md:h-100 relative overflow-hidden rounded-sm group"
-              >
-                <img 
-                  src="/about.jpeg" 
-                  alt="Kailasa Woods Estate" 
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
-                />
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                className="h-48 md:h-64 relative overflow-hidden rounded-sm group"
-              >
-                <img 
-                  src="/gym/g (2).webp" 
-                  alt="Nature at Kailasa" 
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
-                />
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                className="h-48 md:h-64 relative overflow-hidden rounded-sm group"
-              >
-                <img 
-                  src="/mandir bonfire/m (1).webp" 
-                  alt="Peaceful Evenings" 
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
-                />
-              </motion.div>
-            </div>
-
-          </div>
+            <p className="text-lg md:text-xl text-kw-forest/90 leading-relaxed font-serif">
+              There is something truly special about watching dogs make new friends, explore open spaces, and enjoy nature just as much as we do. For us, Kailasa Woods is a place where people, animals, and nature coexist in harmony—a gentle reminder of the simple happiness that comes from sharing our lives with these beautiful gifts of nature.
+            </p>
+          </motion.div>
         </div>
       </section>
     </main>

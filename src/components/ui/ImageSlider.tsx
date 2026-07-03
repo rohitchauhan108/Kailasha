@@ -15,12 +15,15 @@ export default function ImageSlider({
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [direction, setDirection] = useState(0);
 
   const nextSlide = useCallback(() => {
+    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % images.length);
   }, [images.length]);
 
   const prevSlide = useCallback(() => {
+    setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   }, [images.length]);
 
@@ -31,26 +34,44 @@ export default function ImageSlider({
     return () => clearInterval(timer);
   }, [isPaused, nextSlide, autoplayInterval]);
 
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? '100%' : '-100%',
+      opacity: 1,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      x: direction < 0 ? '100%' : '-100%',
+      opacity: 1,
+    }),
+  };
+
   return (
     <div 
       className="relative w-full h-full overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <AnimatePresence mode="wait">
+      <AnimatePresence initial={false} custom={direction} mode="wait">
         <motion.img
           key={currentIndex}
+          custom={direction}
           src={images[currentIndex]}
           alt={`${title} - Image ${currentIndex + 1}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="w-full h-full object-cover"
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{
+            x: { duration: 0.6, ease: "easeInOut" },
+            opacity: { duration: 0.3 },
+          }}
+          className="absolute inset-0 w-full h-full object-cover"
         />
       </AnimatePresence>
-
-      <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
 
       {/* Navigation Arrows */}
       <button
@@ -58,7 +79,7 @@ export default function ImageSlider({
           e.stopPropagation();
           prevSlide();
         }}
-        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all"
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all z-40"
         aria-label="Previous slide"
       >
         <ChevronLeft size={24} />
@@ -68,25 +89,11 @@ export default function ImageSlider({
           e.stopPropagation();
           nextSlide();
         }}
-        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all"
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all z-40"
         aria-label="Next slide"
       >
         <ChevronRight size={24} />
       </button>
-
-      {/* Dots Indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              index === currentIndex ? "bg-white w-6" : "bg-white/50"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 }

@@ -12,7 +12,7 @@ const amenitiesList = [
   {
     name: "Farm-to-Table Organic Meals",
     description: "Savor fresh, organic meals prepared with ingredients grown right here on our estate. Experience the authentic taste of nature with every bite.",
-    image: "/food/f (1).webp"
+    image: "/food/4.jpg"
   },
   {
     name: "High-Speed Wifi",
@@ -32,7 +32,7 @@ const amenitiesList = [
   {
     name: "Gym",
     description: "Maintain your fitness routine in our well-equipped gym with modern equipment and a motivating atmosphere.",
-    image: "/new/5.jpg"
+    image: "/about-section/gym.jpg"
   },
   {
     name: "Recreation and Games",
@@ -52,7 +52,7 @@ const amenitiesList = [
   {
     name: "Library",
     description: "Escape into a good book in our cozy library, stocked with a diverse collection for all reading interests.",
-    image: "/new/13.jpg"
+    image: "/about-section/library.jpg"
   },
   {
     name: "Farm Walks",
