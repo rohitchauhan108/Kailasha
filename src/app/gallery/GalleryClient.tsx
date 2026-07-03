@@ -7,7 +7,8 @@ import {
   type Transition,
   type Variants,
 } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Maximize2, Plus } from "lucide-react";
+import Image from "next/image";
 
 // Organized image arrays by category
 const mainHouseImages = [
@@ -89,6 +90,19 @@ const swimmingPoolImages = [
   "/swimmingpool/7.webp",
 ];
 
+const foodImages = [
+  "/food/1.jpg",
+  "/food/2.jpg",
+  "/food/3.jpg",
+  "/food/4.jpg",
+  "/food/5.jpg",
+  "/food/6.webp",
+  "/food/7.JPG",
+  "/food/8.JPG",
+  "/food/9.JPG",
+  "/food/10.JPG",
+];
+
 const allImages = [
   ...mainHouseImages,
   ...gymImages,
@@ -98,6 +112,7 @@ const allImages = [
   ...bambooCottageImages,
   ...familyRoomImages,
   ...swimmingPoolImages,
+  ...foodImages,
 ];
 
 const categories = [
@@ -109,7 +124,8 @@ const categories = [
   "Amazon Bus",
   "Bamboo Cottage",
   "Family Room",
-  "Swimming Pool"
+  "Swimming Pool",
+  "Food"
 ];
 
 // Soft, premium spring physics configurations
@@ -166,6 +182,7 @@ export default function GalleryClient() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [[page, direction], setPage] = useState([0, 0]);
+  const [visibleCount, setVisibleCount] = useState(16);
 
   const getImagesForCategory = (category: string) => {
     switch (category) {
@@ -187,12 +204,20 @@ export default function GalleryClient() {
         return familyRoomImages;
       case "Swimming Pool":
         return swimmingPoolImages;
+      case "Food":
+        return foodImages;
       default:
         return [];
     }
   };
 
+  // Reset visible count when category changes
+  useEffect(() => {
+    setVisibleCount(16);
+  }, [activeCategory]);
+
   const filteredImages = getImagesForCategory(activeCategory);
+  const visibleImages = filteredImages.slice(0, visibleCount);
 
   const openLightbox = (imageSrc: string) => {
     const absoluteIndex = allImages.indexOf(imageSrc);
@@ -240,10 +265,12 @@ export default function GalleryClient() {
       {/* Hero Section */}
       <section className="relative flex h-[60vh] min-h-125 items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src={mainHouseImages[0]}
             alt="Gallery Kailasa Woods"
+            fill
             className="w-full h-full object-cover"
+            priority
           />
           <div className="absolute inset-0 bg-black/40 mix-blend-overlay" />
           <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/30 to-kw-offwhite/20" />
@@ -314,7 +341,7 @@ export default function GalleryClient() {
       <div className="mx-auto max-w-450 px-2 py-12">
         <motion.div layout="position" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           <AnimatePresence mode="popLayout">
-            {filteredImages.map((src) => (
+            {visibleImages.map((src) => (
               <motion.div
                 layout
                 key={src}
@@ -326,12 +353,14 @@ export default function GalleryClient() {
                 className="relative group cursor-pointer overflow-hidden rounded-none"
                 onClick={() => openLightbox(src)}
               >
-                <div className="w-full overflow-hidden bg-neutral-900 aspect-[4/3]">
-                  <img
+                <div className="w-full overflow-hidden bg-neutral-900 aspect-[4/3] relative">
+                  <Image
                     src={src}
                     alt="Gallery Asset Component"
+                    fill
                     className="h-full w-full object-cover transition-transform duration-1200 cubic-bezier(0.16, 1, 0.3, 1) group-hover:scale-103"
                     loading="lazy"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   />
                 </div>
 
@@ -345,6 +374,21 @@ export default function GalleryClient() {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* See More Button */}
+        {visibleCount < filteredImages.length && (
+          <div className="flex justify-center mt-10">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setVisibleCount(prev => prev + 16)}
+              className="bg-neutral-900 text-white px-8 py-3 rounded-full flex items-center gap-2 border border-white/20 hover:bg-neutral-800 transition-all"
+            >
+              <Plus className="w-5 h-5" />
+              <span className="text-sm uppercase tracking-widest">See More</span>
+            </motion.button>
+          </div>
+        )}
       </div>
 
       {/* High-End Fluid Lightbox */}

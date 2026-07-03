@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
+import ImageSlider from "@/components/ui/ImageSlider";
 
 const amenitiesList = [
   {
@@ -148,7 +149,7 @@ export default function StayPage() {
                 key={index}
                 className={`flex flex-col gap-8 md:gap-16 ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center`}
               >
-                {/* Image */}
+                {/* Image Slider */}
                 <div className="w-full md:w-1/2">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -157,11 +158,7 @@ export default function StayPage() {
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     className="relative aspect-4/3 w-full overflow-hidden"
                   >
-                    <img
-                      src={item.heroImage}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
-                    />
+                    <ImageSlider images={item.gallery} title={item.title} />
                   </motion.div>
                 </div>
 

@@ -4,8 +4,9 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Link from "next/link";
 import { staysData as accommodations } from "@/data/stays";
+import ImageSlider from "@/components/ui/ImageSlider";
 
-function AccommodationItem({ item, index, scrollYProgress, total }: { item: { id: string; details: string; title: string; description: string; heroImage: string; amenities: string[] }, index: number, scrollYProgress: MotionValue<number>, total: number }) {
+function AccommodationItem({ item, index, scrollYProgress, total }: { item: { id: string; details: string; title: string; description: string; heroImage: string; gallery: string[]; amenities: string[] }, index: number, scrollYProgress: MotionValue<number>, total: number }) {
   const y = useTransform(scrollYProgress, [Math.max(0, (index - 1) / total), (index + 1) / total], ["-15%", "15%"]);
 
   return (
@@ -104,28 +105,18 @@ function AccommodationItem({ item, index, scrollYProgress, total }: { item: { id
         </motion.div>
       </div>
       
-      {/* Image Side with Parallax */}
+      {/* Image Side with Slider */}
       <div className="w-full md:w-1/2 relative h-[50vh] min-h-100 md:h-full overflow-hidden z-10">
         <motion.div 
           className="absolute inset-0 w-full h-[130%] top-[-15%] hidden md:block"
           style={{ y }}
         >
-          <img 
-            src={item.heroImage} 
-            alt={item.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
+          <ImageSlider images={item.gallery} title={item.title} />
         </motion.div>
         
-        {/* Mobile static image without parallax to prevent layout issues */}
+        {/* Mobile Slider */}
         <div className="absolute inset-0 w-full h-full md:hidden block">
-          <img 
-            src={item.heroImage} 
-            alt={item.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
+          <ImageSlider images={item.gallery} title={item.title} />
         </div>
       </div>
     </div>

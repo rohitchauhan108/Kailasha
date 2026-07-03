@@ -10,9 +10,9 @@ export default function AboutPage() {
       <section className="relative h-[70vh] min-h-125 flex items-center justify-center overflow-hidden pt-24">
         <div className="absolute inset-0 z-0">
           <img
-            src="/main house/h (6).png"
+            src="/about-bg.png"
             alt="About Kailasa Woods"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-bottom-left bg-black/2"
           />
           <div className="absolute inset-0 bg-black/40 mix-blend-overlay" />
           <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/30 to-kw-offwhite/20" />
@@ -39,7 +39,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-kw-sage text-lg md:text-xl max-w-2xl mx-auto font-sans font-light tracking-wide"
+            className="text-white text-lg md:text-xl max-w-2xl mx-auto font-sans font-light tracking-wide"
           >
             It is the quiet rustle of the bamboo forest, the warmth of old-world charm, and the luxury of unhurried time.
           </motion.p>

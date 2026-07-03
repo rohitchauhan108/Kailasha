@@ -24,7 +24,7 @@ export default function About() {
                 className="font-serif text-4xl md:text-5xl leading-tight"
               >
                  Kailasa Woods  <br />
-                <span className="italic text-kw-sage"> A Luxury Farm Stay</span>
+                <span className="italic text-kw-sage">A Boutique Farm Stay</span>
               </motion.h2>
             </div>
             

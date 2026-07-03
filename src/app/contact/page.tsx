@@ -10,7 +10,7 @@ export default function ContactPage() {
       <section className="relative h-[60vh] min-h-125 flex items-center justify-center overflow-hidden pt-24">
         <div className="absolute inset-0 z-0">
           <img
-            src="/main house/h (5).png"
+            src="/contact-bg.png"
             alt="Contact Kailasa Woods"
             className="w-full h-full object-cover"
           />
