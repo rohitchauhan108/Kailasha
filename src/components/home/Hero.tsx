@@ -20,7 +20,7 @@ export default function Hero() {
   const heroImages = [
     "/desktop.jpg",
     "/about-section/Picture2.jpg",
-    "/about-section/family.png",
+    "/about-section/family.webp",
     "/about-section/farm-view.png",
     "/about-section/living-area-with-family.png"
   ];
