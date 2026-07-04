@@ -12,13 +12,13 @@ import Image from "next/image";
 
 // Organized image arrays by category
 const mainHouseImages = [
-  "/new/2.png",
-  "/new/4.png",
-  "/new/3.png",
-  "/new/9.png",
+  "/new/2.webp",
+  "/new/4.webp",
+  "/new/3.webp",
+  "/new/9.webp",
   "/kailasha-new-iamges/8.webp",
 
-  "/new/10.png",
+  "/new/10.webp",
   "/new/13.jpg",
   "/new/17.jpg",
   "/kailasha-new-iamges/1.webp",
@@ -91,16 +91,16 @@ const swimmingPoolImages = [
 ];
 
 const foodImages = [
-  "/food/1.jpg",
-  "/food/2.jpg",
-  "/food/3.jpg",
-  "/food/4.jpg",
-  "/food/5.jpg",
+  "/food/1.webp",
+  "/food/2.webp",
+  "/food/3.webp",
+  "/food/4.webp",
+  "/food/5.webp",
   "/food/6.webp",
-  "/food/7.JPG",
-  "/food/8.JPG",
-  "/food/9.JPG",
-  "/food/10.JPG",
+  "/food/7.webp",
+  "/food/8.webp",
+  "/food/9.webp",
+  "/food/10.webp",
 ];
 
 const allImages = [

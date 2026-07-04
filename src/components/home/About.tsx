@@ -18,7 +18,7 @@ export default function About() {
     },
     {
       text: "When we built that home amidst the forests of Bisht Gaon, at the foothills of Mussoorie, it became a reflection of everything I had once imagined as a child. Every corner was created with love, care, and the hope of building a space where life could be enjoyed at a gentler pace.",
-      image: "/about-section/Picture3.png"
+      image: "/about-section/Picture3.webp"
     },
     {
       text: "As the house came together, I found myself wishing I could share this feeling with others — with people looking to pause, breathe, reconnect with their loved ones, or simply spend some quiet time with themselves. That thought became Kailasa Woods.",
@@ -30,15 +30,15 @@ export default function About() {
     },
     {
       text: "Nestled among lush forests, fruit-laden trees, homegrown vegetables, birdsong, and the fresh mountain air of Dehradun, Kailasa Woods is more than a place to stay. It is a little piece of the life we love, and one we feel grateful to share.",
-      image: "/about-section/Picture6.jpg"
+      image: "/about-section/Picture6.webp"
     },
     {
       text: "Our three unique stays each offer a unique experience — from a cosy family room within our home, to the whimsical Amazon Bus, and our signature Bamboo Cottage, a deodar wood retreat tucked within a bamboo canopy. Wherever you choose to stay, nature is always your closest companion.",
-      image: "/about-section/Bamboo cottage.jpg"
+      image: "/about-section/Bamboo cottage.webp"
     },
     {
       text: "One of the things closest to my heart is the food we serve. Most of our vegetables come fresh from our farm, and every meal is prepared with care in my own kitchen. I believe food tastes best when it is fresh, seasonal, and cooked with love — not frozen, processed, or rushed. When you sit down for a meal at Kailasa Woods, I hope you feel the warmth and comfort of a home away from home.",
-      image: "/food/1.jpg"
+      image: "/food/1.webp"
     },
     {
       text: "While nature encourages you to slow down, there is also plenty of space to enjoy time with family and friends. Our recreation area is filled with simple pleasures — a game of table tennis, a round of pool, a carrom match, or board games that bring everyone together. For those who like to stay active, we also have a fully equipped gym, so your fitness routine does not have to take a holiday. And on warm afternoons, our swimming pool is the perfect place to cool off, relax, and soak in the peaceful surroundings.",
@@ -89,7 +89,7 @@ export default function About() {
                   // 4-image grid for picture 6
                   <div className="w-full grid grid-cols-2 gap-2 md:gap-3">
                     {[
-                      '/pets/p (1).JPG', '/pets/p (2).JPG', '/pets/p (3).JPG', '/about-section/Picture6.jpg'
+                      '/pets/p (1).JPG', '/pets/p (2).JPG', '/pets/p (3).JPG', '/about-section/Picture6.webp'
                     ].map((src, i) => (
                       <div key={i} className="relative w-full aspect-[4/3] overflow-hidden rounded-sm bg-kw-beige/50 group">
                         <img 
@@ -107,9 +107,9 @@ export default function About() {
                   // 3-image grid for stays
                   <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
                     {[
-                      '/about-section/Family room.jpg',
+                      '/about-section/Family room.webp',
                       '/about-section/Amazon bus.jpg',
-                      '/about-section/Bamboo cottage.jpg'
+                      '/about-section/Bamboo cottage.webp'
                     ].map((src, i) => (
                       <div key={i} className="relative w-full aspect-[4/3] overflow-hidden rounded-sm bg-kw-beige/50 group">
                         <img 
@@ -127,7 +127,7 @@ export default function About() {
                   // 4-image grid for food
                   <div className="w-full grid grid-cols-2 gap-2 md:gap-3">
                     {[
-                      '/food/1.jpg', '/food/2.jpg', '/food/3.jpg', '/food/4.jpg'].map((src, i) => (
+                      '/food/1.webp', '/food/2.webp', '/food/3.webp', '/food/4.webp'].map((src, i) => (
                       <div key={i} className="relative w-full aspect-[4/3] overflow-hidden rounded-sm bg-kw-beige/50 group">
                         <img 
                           src={src} 

@@ -21,15 +21,15 @@ export default function Hero() {
     "/desktop.jpg",
     "/about-section/Picture2.jpg",
     "/about-section/family.webp",
-    "/about-section/farm-view.png",
+    "/about-section/Picture3.webp",
     "/about-section/living-area-with-family.png"
   ];
 
   const heroMobileImages = [
     "/mobile.jpg",
     "/about-section/Picture2.jpg",
-    "/about-section/family-mobile.png",
-    "/about-section/farm-view.png",
+    "/about-section/family-mobile.webp",
+    "/about-section/Picture3.webp",
     "/about-section/living-area-with-family.png"
   ];
   return (
