@@ -32,7 +32,6 @@ export default function Hero() {
     "/about-section/farm-view.png",
     "/about-section/living-area-with-family.png"
   ];
-
   return (
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-kw-forest">
 
