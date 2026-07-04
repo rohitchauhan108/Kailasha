@@ -64,12 +64,12 @@ const amenitiesList = [
   {
     name: "24/7 Power Backup",
     description: "Enjoy uninterrupted stay with our reliable 24/7 power backup system, ensuring your comfort at all times.",
-    image: "/kailasha-new-iamges/1.webp"
+    image: "/power.png"
   },
   {
     name: "Tea and Souvenirs",
     description: "Relish a warm cup of tea and browse through our curated selection of unique souvenirs to take home memories of your stay.",
-    image: "/new/1.webp"
+    image: "/tea.png"
   },
 ];
 

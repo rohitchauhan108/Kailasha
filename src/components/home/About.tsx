@@ -89,7 +89,8 @@ export default function About() {
                   // 4-image grid for picture 6
                   <div className="w-full grid grid-cols-2 gap-2 md:gap-3">
                     {[
-                      '/pets/p (1).JPG', '/pets/p (2).JPG', '/pets/p (3).JPG', '/mandir bonfire/m (1).webp'].map((src, i) => (
+                      '/pets/p (1).JPG', '/pets/p (2).JPG', '/pets/p (3).JPG', '/about-section/Picture6.jpg'
+                    ].map((src, i) => (
                       <div key={i} className="relative w-full aspect-[4/3] overflow-hidden rounded-sm bg-kw-beige/50 group">
                         <img 
                           src={src} 

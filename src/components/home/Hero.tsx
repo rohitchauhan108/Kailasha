@@ -18,9 +18,18 @@ export default function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   
   const heroImages = [
-    "/desktop.jpeg",
+    "/desktop.jpg",
     "/about-section/Picture2.jpg",
-    "/about-section/house-img.png",
+    "/about-section/family.png",
+    "/about-section/farm-view.png",
+    "/about-section/living-area-with-family.png"
+  ];
+
+  const heroMobileImages = [
+    "/mobile.jpg",
+    "/about-section/Picture2.jpg",
+    "/about-section/family-mobile.png",
+    "/about-section/farm-view.png",
     "/about-section/living-area-with-family.png"
   ];
 
@@ -31,7 +40,7 @@ export default function Hero() {
         style={{ y, scale }}
         className="absolute inset-0 h-full w-full"
       >
-        <ImageSlider images={heroImages} title="Kailasa Woods Hero" autoplayInterval={10000} />
+        <ImageSlider images={heroImages} mobileImages={heroMobileImages} title="Kailasa Woods Hero" autoplayInterval={10000} />
       </motion.div>
 
       <motion.div

@@ -6,23 +6,37 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function ImageSlider({
   images,
+  mobileImages,
   title,
   autoplayInterval = 5000,
 }: {
   images: string[];
+  mobileImages?: string[];
   title: string;
   autoplayInterval?: number;
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkIsMobile();
+    window.addEventListener("resize", checkIsMobile);
+    return () => window.removeEventListener("resize", checkIsMobile);
+  }, []);
+
+  const activeImages = isMobile && mobileImages ? mobileImages : images;
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
-  }, [images.length]);
+    setCurrentIndex((prev) => (prev + 1) % activeImages.length);
+  }, [activeImages.length]);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  }, [images.length]);
+    setCurrentIndex((prev) => (prev - 1 + activeImages.length) % activeImages.length);
+  }, [activeImages.length]);
 
   useEffect(() => {
     if (isPaused) return;
@@ -30,6 +44,10 @@ export default function ImageSlider({
     const timer = setInterval(nextSlide, autoplayInterval);
     return () => clearInterval(timer);
   }, [isPaused, nextSlide, autoplayInterval]);
+
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [activeImages.length]);
 
   const fadeVariants = {
     enter: { opacity: 0 },
@@ -46,7 +64,7 @@ export default function ImageSlider({
       <AnimatePresence initial={false} mode="wait">
         <motion.img
           key={currentIndex}
-          src={images[currentIndex]}
+          src={activeImages[currentIndex]}
           alt={`${title} - Image ${currentIndex + 1}`}
           variants={fadeVariants}
           initial="enter"
