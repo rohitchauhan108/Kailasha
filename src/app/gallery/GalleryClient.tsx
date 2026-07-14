@@ -39,6 +39,12 @@ const mandirBonfireImages = [
 ];
 
 const petsImages = [
+  "/pets/1.webp",
+  "/pets/2.webp",
+  "/pets/3.webp",
+  "/pets/4.webp",
+  "/pets/5.webp",
+  "/pets/6.webp",
   "/pets/p (1).JPG",
   "/pets/p (2).JPG",
   "/pets/p (3).JPG"
