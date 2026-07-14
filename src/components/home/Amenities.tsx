@@ -59,7 +59,7 @@ const amenitiesList = [
   {
     name: "Pet Friendly",
     description: "Bring your furry friends along! Our pet-friendly property ensures a comfortable stay for you and your beloved pets.",
-    image: "/pets/p (1).JPG"
+    image: "/pets/p (3).JPG"
   },
   {
     name: "24/7 Power Backup",
