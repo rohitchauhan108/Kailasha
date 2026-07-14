@@ -14,7 +14,7 @@ export default function About() {
     },
     {
       text: "When I grew up and fell in love, my belief in magic only grew stronger. Mayur, now my husband and the brain behind Kailasa, and I dreamt of building our own home — a place that felt peaceful, warm, and truly ours.",
-      image: "/about-section/Picture2.jpg"
+      image: "/about-section/Picture2.webp"
     },
     {
       text: "When we built that home amidst the forests of Bisht Gaon, at the foothills of Mussoorie, it became a reflection of everything I had once imagined as a child. Every corner was created with love, care, and the hope of building a space where life could be enjoyed at a gentler pace.",
@@ -85,7 +85,25 @@ export default function About() {
               
               {/* Image or Grid */}
               <div className="w-full lg:w-1/2 flex items-center">
-                {index === 5 ? (
+                {index === 2 ? (
+                  // 2-image grid for "When we built" section
+                  <div className="w-full grid grid-cols-2 gap-2 md:gap-3">
+                    {[
+                      block.image, '/about-section/Picture3ii.webp'
+                    ].map((src, i) => (
+                      <div key={i} className="relative w-full aspect-[4/3] overflow-hidden rounded-sm bg-kw-beige/50 group">
+                        <img 
+                          src={src} 
+                          alt={`Image ${i+1}`}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).style.display = 'none';
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : index === 5 ? (
                   // 4-image grid for picture 6
                   <div className="w-full grid grid-cols-2 gap-2 md:gap-3">
                     {[

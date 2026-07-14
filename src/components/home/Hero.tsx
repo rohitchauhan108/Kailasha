@@ -32,6 +32,14 @@ export default function Hero() {
     "/about-section/Picture3.webp",
     "/about-section/living-area-with-family.png"
   ];
+
+  const heroTitles = [
+    "Logo",
+    "Host",
+    "Family",
+    "Main house",
+    "Living area with family"
+  ];
   return (
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-kw-forest">
 
@@ -39,7 +47,7 @@ export default function Hero() {
         style={{ y, scale }}
         className="absolute inset-0 h-full w-full"
       >
-        <ImageSlider images={heroImages} mobileImages={heroMobileImages} title="Kailasa Woods Hero" autoplayInterval={10000} />
+        <ImageSlider images={heroImages} mobileImages={heroMobileImages} titles={heroTitles} autoplayInterval={10000} />
       </motion.div>
 
       <motion.div

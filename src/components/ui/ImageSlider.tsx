@@ -7,12 +7,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function ImageSlider({
   images,
   mobileImages,
+  titles,
   title,
   autoplayInterval = 5000,
 }: {
   images: string[];
   mobileImages?: string[];
-  title: string;
+  titles?: string[];
+  title?: string;
   autoplayInterval?: number;
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -65,7 +67,7 @@ export default function ImageSlider({
         <motion.img
           key={currentIndex}
           src={activeImages[currentIndex]}
-          alt={`${title} - Image ${currentIndex + 1}`}
+          alt={titles && titles[currentIndex] ? titles[currentIndex] : (title ? `${title} - Image ${currentIndex + 1}` : `Image ${currentIndex + 1}`)}
           variants={fadeVariants}
           initial="enter"
           animate="center"
@@ -74,6 +76,24 @@ export default function ImageSlider({
           className="absolute inset-0 w-full h-full object-cover"
         />
       </AnimatePresence>
+
+      {/* Slide Title */}
+      {titles && titles[currentIndex] && (
+        <motion.div
+          key={`title-${currentIndex}`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30"
+        >
+          <div className="bg-black/40 px-6 py-3 rounded-sm">
+            <p className="text-white font-serif text-lg md:text-xl lg:text-2xl tracking-wide">
+              {titles[currentIndex]}
+            </p>
+          </div>
+        </motion.div>
+      )}
 
       {/* Navigation Arrows */}
       <button
