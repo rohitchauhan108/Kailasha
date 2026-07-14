@@ -104,15 +104,17 @@ export default function About() {
                     ))}
                   </div>
                 ) : index === 5 ? (
-                  // 4-image grid for picture 6
-                  <div className="w-full grid grid-cols-2 gap-2 md:gap-3">
+                  // 3x3 grid for pets images
+                  <div className="w-full grid grid-cols-3 gap-2 md:gap-3">
                     {[
-                      '/pets/p (1).JPG', '/pets/p (2).JPG', '/pets/p (3).JPG', '/about-section/Picture6.webp'
+                      '/pets/1.webp', '/pets/2.webp', '/pets/3.webp',
+                      '/pets/4.webp', '/pets/5.webp', '/pets/6.webp',
+                      '/pets/p (1).JPG', '/pets/p (2).JPG', '/pets/p (3).JPG'
                     ].map((src, i) => (
                       <div key={i} className="relative w-full aspect-[4/3] overflow-hidden rounded-sm bg-kw-beige/50 group">
                         <img 
                           src={src} 
-                          alt={`Image ${i+1}`}
+                          alt={`Pets ${i+1}`}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           onError={(e) => {
                             (e.target as HTMLImageElement).style.display = 'none';
