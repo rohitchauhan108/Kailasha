@@ -27,7 +27,7 @@ const amenitiesList = [
   {
     name: "Outdoor Sitting",
     description: "Enjoy the fresh air and beautiful views from our outdoor sitting area, perfect for morning coffee or evening conversations.",
-    image: "/kailasha-new-iamges/6.webp"
+    image: "/sitting.webp"
   },
   {
     name: "Gym",
