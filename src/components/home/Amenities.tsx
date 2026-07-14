@@ -49,12 +49,12 @@ const amenitiesList = [
   {
     name: "Library",
     description: "Escape into a good book in our cozy library, stocked with a diverse collection for all reading interests.",
-    image: "/about-section/library.webp"
+    image: "/library.webp"
   },
   {
     name: "Farm Walks",
     description: "Explore our organic farm on guided walks, learn about sustainable farming, and connect with the land.",
-    image: "/new/4.webp"
+    image: "/farm-walks.webp"
   },
   {
     name: "Pet Friendly",
@@ -69,7 +69,7 @@ const amenitiesList = [
   {
     name: "Tea and Souvenirs",
     description: "Relish a warm cup of tea and browse through our curated selection of unique souvenirs to take home memories of your stay.",
-    image: "/tea.png"
+    image: "/tea.webp"
   },
 ];
 
@@ -107,7 +107,7 @@ export default function Amenities() {
             transition={{ duration: 0.8 }}
             className="font-serif text-4xl md:text-5xl mb-6"
           >
-            Curated Amenities
+            Curated Amenities/Features 
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
