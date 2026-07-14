@@ -29,10 +29,12 @@ export default function WelcomeMessage() {
           {[
             "Slow mornings with birdsong.",
             "Fresh food cooked by someone who genuinely enjoys feeding people.",
-            "The best chats happen over a dining table.",
+            "I believe the best chats happen over a dining table.",
             "Heartfelt conversations with strangers who become friends.",
             "Dogs and cats running freely and making new companions.",
-            "The scent of Deodar Wood after a cool evening."
+            "The scent of Deodar Wood after a cool evening.",
+            "A place where guests can simply be.",
+            "We promise you cherished moments that you will remember long after you have forgotten the thread count of the bedsheets or the beauty of the room."
           ].map((item, index) => (
             <div key={index} className="flex items-start gap-3 bg-white p-6 rounded-lg shadow-sm">
               <span className="text-2xl">✨</span>
