@@ -19,26 +19,26 @@ export default function Hero() {
   
   const heroImages = [
     "/desktop.jpg",
-    "/about-section/Picture2.jpg",
-    "/about-section/family.webp",
+    "/host.webp",
+    "/family.webp",
     "/about-section/Picture3.webp",
     "/about-section/living-area-with-family.png"
   ];
 
   const heroMobileImages = [
     "/mobile.jpg",
-    "/about-section/Picture2.jpg",
-    "/about-section/family-mobile.webp",
+    "/host.webp",
+    "/family-mobile.webp",
     "/about-section/Picture3.webp",
     "/about-section/living-area-with-family.png"
   ];
 
   const heroTitles = [
     "Logo",
-    "Host",
+    "Host (Mayur and Anisha)",
     "Family",
     "Main house",
-    "Living area with family"
+    "Unending Get-Together"
   ];
   return (
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-kw-forest">

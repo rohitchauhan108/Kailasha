@@ -1,7 +1,6 @@
 import Preloader from "@/components/animations/Preloader";
 import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";
-import TextReveal from "@/components/home/TextReveal";
 import Accommodations from "@/components/home/Accommodations";
 import VideoExperience from "@/components/home/VideoExperience";
 import Gallery from "@/components/home/Gallery";
@@ -17,7 +16,7 @@ export default function Home() {
       <Hero />
       <About />
       <VideoExperience />
-      <TextReveal />
+      {/* <TextReveal /> */}
       <Accommodations />
       <Gallery />
       <Amenities />
