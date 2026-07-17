@@ -1,9 +1,38 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Mail, Phone } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function ContactPage() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    setSending(true);
+    setStatusMessage(null);
+
+    const serviceId = "YOUR_SERVICE_ID";
+    const templateId = "YOUR_TEMPLATE_ID";
+    const publicKey = "YOUR_PUBLIC_KEY";
+
+    try {
+      await emailjs.sendForm(serviceId, templateId, formRef.current, publicKey);
+      setStatusMessage("Message sent successfully! We will get back to you soon.");
+      formRef.current.reset();
+    } catch (error) {
+      setStatusMessage("Unable to send message. Please try again later.");
+      console.error("EmailJS send error:", error);
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-kw-stone text-kw-forest">
       {/* Hero Section */}
@@ -124,14 +153,16 @@ export default function ContactPage() {
               className="bg-kw-beige p-8 md:p-12 rounded-sm"
             >
               <h3 className="font-serif text-3xl mb-8 text-kw-forest">Send an Inquiry</h3>
-              <form className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-xs uppercase tracking-widest text-kw-forest/60 mb-2">Full Name</label>
                   <input 
                     type="text" 
                     id="name" 
+                    name="user_name"
                     className="w-full bg-transparent border-b border-kw-forest/30 py-3 text-kw-forest focus:outline-none focus:border-kw-forest transition-colors placeholder:text-kw-forest/30"
                     placeholder="Your Name"
+                    required
                   />
                 </div>
                 
@@ -141,8 +172,10 @@ export default function ContactPage() {
                     <input 
                       type="email" 
                       id="email" 
+                      name="user_email"
                       className="w-full bg-transparent border-b border-kw-forest/30 py-3 text-kw-forest focus:outline-none focus:border-kw-forest transition-colors placeholder:text-kw-forest/30"
                       placeholder="you@example.com"
+                      required
                     />
                   </div>
                   <div>
@@ -150,6 +183,7 @@ export default function ContactPage() {
                     <input 
                       type="tel" 
                       id="phone" 
+                      name="user_phone"
                       className="w-full bg-transparent border-b border-kw-forest/30 py-3 text-kw-forest focus:outline-none focus:border-kw-forest transition-colors placeholder:text-kw-forest/30"
                       placeholder="+91"
                     />
@@ -160,19 +194,26 @@ export default function ContactPage() {
                   <label htmlFor="message" className="block text-xs uppercase tracking-widest text-kw-forest/60 mb-2">Message</label>
                   <textarea 
                     id="message" 
+                    name="user_message"
                     rows={4}
                     className="w-full bg-transparent border-b border-kw-forest/30 py-3 text-kw-forest focus:outline-none focus:border-kw-forest transition-colors resize-none placeholder:text-kw-forest/30"
                     placeholder="Tell us about your stay requirements..."
+                    required
                   ></textarea>
                 </div>
+
+                {statusMessage && (
+                  <p className="text-sm text-kw-forest/80">{statusMessage}</p>
+                )}
 
                 <motion.button 
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  type="button"
-                  className="w-full bg-kw-forest text-kw-offwhite py-4 uppercase tracking-widest text-sm font-medium hover:bg-[#16291d] transition-colors mt-4"
+                  type="submit"
+                  disabled={sending}
+                  className="w-full bg-kw-forest text-kw-offwhite py-4 uppercase tracking-widest text-sm font-medium hover:bg-[#16291d] transition-colors mt-4 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {sending ? "Sending..." : "Send Message"}
                 </motion.button>
               </form>
             </motion.div>
