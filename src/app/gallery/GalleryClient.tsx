@@ -33,9 +33,13 @@ const gymImages = [
 ];
 
 const mandirBonfireImages = [
+    "/temple/1.webp",
+  "/temple/3.webp",
   "/mandir bonfire/m (1).webp",
   "/mandir bonfire/m (2).webp",
-  "/new/6.jpg"
+  "/new/6.jpg",
+
+  
 ];
 
 const petsImages = [

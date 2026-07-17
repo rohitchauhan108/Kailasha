@@ -55,7 +55,7 @@ export default function AboutPage() {
             </h2>
             
             <p className="text-lg md:text-xl text-kw-forest/90 leading-relaxed font-serif">
-              At Kailasa Woods, our family extends well beyond the people who live here. We share our home with some very special companions—our two beloved Shih Tzus - Coco and Zara, our Lion King like German Shepherd - Sultan. Our beautiful cheerful Brazilian conors whose songs fill the mornings, colourful fishes and turtles in the pond, and a few adopted cats who seem to have chosen Kailasa Woods as their forever happy place.
+              At Kailasa Woods, our family extends well beyond the people who live here. We share our home with some very special companions—our two beloved Shih Tzus - Coco and Zara, our king sized German Shepherd Sultan - Sultan. Our cheerful Brazilian conures fill the mornings with delightful songs, colorful fishes and turtles in the pond, and a few adopted cats who seem to have chosen Kailasa Woods as their forever happy place.
             </p>
 
             <p className="text-lg md:text-xl text-kw-forest/90 leading-relaxed font-serif">

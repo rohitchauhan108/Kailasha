@@ -33,9 +33,9 @@ export default function VideoExperience() {
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center">
       <motion.div style={{ y, scale }} className="absolute inset-0 w-full h-[140%] top-[-20%]">
         <img
-          src="/mandir bonfire/m (1).webp"
+          src="/temple/3.webp"
           alt="Kailasa Temple Heritage"
-          className="w-full h-full object-cover opacity-50"
+          className="w-full h-full object-contain opacity-80"
         />
         <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/20 to-black/80 z-10" />
       </motion.div>
@@ -50,8 +50,8 @@ export default function VideoExperience() {
              The Heritage
            </motion.span>
            <motion.h2 variants={itemVariants} className="font-serif text-3xl md:text-5xl lg:text-6xl text-kw-offwhite leading-tight mb-8">
-             Blessed by almighty Lord Shiva, <br className="hidden md:block" />
-             reside at our Farm Stay.
+             You will feel blessed by Lord Shiva's Blessings,<br className="hidden md:block" />
+              when you stay at our Farm Stay
            </motion.h2>
            <motion.div variants={itemVariants} className="font-sans font-normal text-base md:text-xl text-kw-offwhite/80 max-w-3xl mx-auto leading-relaxed space-y-6">
              <p>
@@ -60,9 +60,7 @@ export default function VideoExperience() {
              <p>
                You will be taken back by a time machine to the Satyug Era where Bholenath was worshipped in the light of diyas.
              </p>
-             <p>
-               The architecture blends nature with spatial grandeur, featuring old world colonial interiors, high ceiling drawing room that invites light and air to dance freely through the space.
-             </p>
+             
            </motion.div>
          </motion.div>
       </div>
