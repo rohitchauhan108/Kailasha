@@ -32,14 +32,17 @@ const gymImages = [
   "/gym/g (2).webp",
 ];
 
-const mandirBonfireImages = [
-    "/temple/1.webp",
+const templeImages = [
+  "/temple/1.webp",
   "/temple/3.webp",
-  "/mandir bonfire/m (1).webp",
   "/mandir bonfire/m (2).webp",
-  "/new/6.jpg",
+  "/mandir bonfire/m (1).webp",
 
-  
+
+];
+
+const bonfireImages = [
+  "/new/6.jpg",
 ];
 
 const petsImages = [
@@ -116,7 +119,8 @@ const foodImages = [
 const allImages = [
   ...mainHouseImages,
   ...gymImages,
-  ...mandirBonfireImages,
+  ...templeImages,
+  ...bonfireImages,
   ...petsImages,
   ...amazonBusImages,
   ...bambooCottageImages,
@@ -129,7 +133,8 @@ const categories = [
   "All",
   "Main House",
   "Gym & Recreations",
-  "Mandir & Bonfire",
+  "Kailasha Temple",
+  "Bonfire",
   "Pets",
   "Amazon Bus",
   "Bamboo Cottage",
@@ -202,8 +207,10 @@ export default function GalleryClient() {
         return mainHouseImages;
       case "Gym & Recreations":
         return gymImages;
-      case "Mandir & Bonfire":
-        return mandirBonfireImages;
+      case "Kailasha Temple":
+        return templeImages;
+      case "Bonfire":
+        return bonfireImages;
       case "Pets":
         return petsImages;
       case "Amazon Bus":

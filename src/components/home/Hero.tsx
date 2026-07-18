@@ -34,11 +34,11 @@ export default function Hero() {
   ];
 
   const heroTitles = [
-    "Logo",
-    "Host (Mayur and Anisha)",
-    "Family",
-    "Main house",
-    "Unending Get-Together"
+    "",
+    "Host:\nMayur & Anisha",
+    "",
+    "",
+    "Happy Times"
   ];
   return (
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-kw-forest">
@@ -47,7 +47,7 @@ export default function Hero() {
         style={{ y, scale }}
         className="absolute inset-0 h-full w-full"
       >
-        <ImageSlider images={heroImages} mobileImages={heroMobileImages} titles={heroTitles} autoplayInterval={10000} />
+        <ImageSlider images={heroImages} mobileImages={heroMobileImages} titles={heroTitles} autoplayInterval={3000} />
       </motion.div>
 
       <motion.div
@@ -63,15 +63,6 @@ export default function Hero() {
           A Farm to Table Luxury Farm Stay
         </motion.p>
         
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="hidden font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-kw-offwhite tracking-tight mb-8 drop-shadow-lg"
-        >
-          Kailasa Woods
-        </motion.h1>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
