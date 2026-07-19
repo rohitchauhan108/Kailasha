@@ -9,7 +9,7 @@ export default function ImageSlider({
   mobileImages,
   titles,
   title,
-  autoplayInterval = 5000,
+  autoplayInterval = 3000,
 }: {
   images: string[];
   mobileImages?: string[];
@@ -88,7 +88,7 @@ export default function ImageSlider({
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30"
         >
           <div className="bg-black/40 px-6 py-3 rounded-sm">
-            <p className="text-white font-serif text-lg md:text-xl lg:text-2xl tracking-wide">
+            <p className="text-white font-serif text-lg md:text-xl lg:text-2xl tracking-wide whitespace-pre-line text-center">
               {titles[currentIndex]}
             </p>
           </div>
