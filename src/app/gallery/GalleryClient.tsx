@@ -37,8 +37,6 @@ const templeImages = [
   "/temple/3.webp",
   "/mandir bonfire/m (2).webp",
   "/mandir bonfire/m (1).webp",
-
-
 ];
 
 const bonfireImages = [
